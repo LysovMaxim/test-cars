@@ -5,7 +5,8 @@ import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect,} from 'react';
+import { useState, useEffect, } from 'react';
+import { GlobalStyles } from "./GlobalStyles";
 // import axios from 'axios';
 
 export const App = () => {
@@ -69,6 +70,7 @@ export const App = () => {
 
   return (
     <>
+      <GlobalStyles/>
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

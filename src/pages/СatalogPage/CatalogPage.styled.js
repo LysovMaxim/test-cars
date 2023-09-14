@@ -25,9 +25,13 @@ const ContainerCar = styled.li`
 `;
 
 const Icon = styled(AiTwotoneHeart)`
-  fill: #ffff;
+  // fill: #ffff;
   width: 18px;
   height: 18px;
+
+  fill: ${ props => {
+    
+  }}
   
 `;
 
@@ -41,8 +45,8 @@ const BtnIcon = styled.button`
   border: none;
   background-color: inherit;
   cursor: pointer;
-
-
 `;
 
-export { Img, Container, ContainerCar, Icon, BtnIcon };
+
+
+export { Img, Container, ContainerCar, Icon, BtnIcon};

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Img,
   Container,
@@ -6,15 +7,17 @@ import {
   BtnIcon,
 } from './CatalogPage.styled';
 
-const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit }) => {
+const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit, }) => {
+
+
   return (
     <>
       <Container>
         {cars.map(car => (
           <ContainerCar key={car.id}>
             <Img src={car.img} alt="car" />
-            <BtnIcon onClick={() => addFavorit(car)}>
-              <Icon />
+            <BtnIcon  onClick={() => addFavorit(car)}>
+              <Icon id={car.id} />
             </BtnIcon>
             <ul>
               <li>{car.make}</li>

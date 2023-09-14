@@ -15,8 +15,7 @@ export const App = () => {
   const [showeModal, setShoweModal] = useState(false);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
-
-  console.log(favorite);
+  
 
   const count = useRef(0);
 
@@ -29,7 +28,7 @@ export const App = () => {
     setPage(() => page + 1);
   };
 
-  const addFavorit = car => {
+  const addFavorit = (car) => {
     let isInArray = false;
     const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
     console.log(index);

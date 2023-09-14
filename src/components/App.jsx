@@ -91,6 +91,7 @@ export const App = () => {
         </Route>
       </Routes>
       {showeModal && <Modal onClose={onModal} data={dataOneCar} />}
+      {error && <h1>{error}</h1>}
     </>
   );
 };

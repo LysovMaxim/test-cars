@@ -17,7 +17,7 @@ export const App = () => {
   const [error, setError] = useState(null);
   
 
-  const count = useRef(0);
+ 
 
   const onModal = data => {
     setShoweModal(!showeModal);
@@ -52,7 +52,7 @@ export const App = () => {
   // );
 
   useEffect(() => {
-    if (count.current !== 0) {
+    
       fetch(
         `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
       )
@@ -63,8 +63,8 @@ export const App = () => {
         .catch(error => {
           setError(error);
         });
-    }
-    count.current++;
+    
+   
   }, [page]);
 
   return (
@@ -91,7 +91,7 @@ export const App = () => {
         </Route>
       </Routes>
       {showeModal && <Modal onClose={onModal} data={dataOneCar} />}
-      {error && <h1>{error}</h1>}
+      {error && <h1>{error.message}</h1>}
     </>
   );
 };

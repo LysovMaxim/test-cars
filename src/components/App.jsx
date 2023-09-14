@@ -5,7 +5,7 @@ import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect,} from 'react';
 // import axios from 'axios';
 
 export const App = () => {

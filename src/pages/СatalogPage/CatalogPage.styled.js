@@ -28,6 +28,7 @@ const Icon = styled(AiTwotoneHeart)`
   fill: #ffff;
   width: 18px;
   height: 18px;
+  
 `;
 
 const BtnIcon = styled.button`
@@ -39,6 +40,9 @@ const BtnIcon = styled.button`
   align-items: center;
   border: none;
   background-color: inherit;
+  cursor: pointer;
+
+
 `;
 
 export { Img, Container, ContainerCar, Icon, BtnIcon };

@@ -33,9 +33,10 @@ export const App = () => {
   const addFavorit = car => {
     let isInArray = false;
     const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
-    console.log(index)
     if (index !== -1) {
-      favorite.splice(index, 1);
+      // favorite.splice(index, 1);
+      const newArr = favorite.filter(n => n.id !== car.id);
+      setFavorite(newArr);
       isInArray = true;
     } else if (index) {
       isInArray = false;
@@ -44,6 +45,7 @@ export const App = () => {
   };
 
   useEffect(() => {
+    console.log("test")
     const favoriteStringify = JSON.stringify(favorite);
     localStorage.setItem('favorite', favoriteStringify);
   }, [favorite]);

@@ -48,6 +48,16 @@ export const App = () => {
     localStorage.setItem('favorite', favoriteStringify);
   }, [favorite]);
 
+  // useEffect(
+  //   () => async () => {
+  //     const { data } = await axios.get(
+  //       `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
+  //     );
+  //     return setCars(prevState => [...prevState, ...data]);
+  //   },
+  //   [page]
+  // );
+
   useEffect(() => {
     if (count.current !== 0){
     fetch(
@@ -83,7 +93,7 @@ export const App = () => {
           />
           <Route
             path="/favorites"
-            element={<FavoritesPage favorite={favorite} />}
+            element={<FavoritesPage onClick={onModal} favorite={favorite} />}
           />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

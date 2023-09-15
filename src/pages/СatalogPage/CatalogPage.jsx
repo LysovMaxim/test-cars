@@ -8,6 +8,12 @@ import {
   ContainerInfo,
   InfoCar,
   ContainerMain,
+  InfoCarlist,
+  InfoCarModel,
+  InfoCarPrice,
+  DataCar,
+  Delimiter,
+  DataContainer
 } from './CatalogPage.styled';
 
 const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit }) => {
@@ -23,22 +29,22 @@ const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit }) => {
               </BtnIcon>
               <ContainerInfo>
                 <InfoCar>
-                  <div>{car.make}</div>
-                  <div>{car.model},</div>
-                  <div>{car.year}</div>
+                  <InfoCarlist>{car.make}</InfoCarlist>
+                  <InfoCarModel>{car.model}</InfoCarModel>
+                  <InfoCarlist>,{car.year}</InfoCarlist>
                 </InfoCar>
                 <div>
-                  <div>{car.rentalPrice}</div>
+                  <InfoCarPrice>{car.rentalPrice}</InfoCarPrice>
                 </div>
               </ContainerInfo>
-              <ul>
-                <li>{car.address}</li>
-                <li>{car.rentalCompany}</li>
-                <li>{car.type}</li>
-                <li>{car.model}</li>
-                <li>{car.id}</li>
-                <li>{car.accessories[1]}</li>
-              </ul>
+              <DataContainer>
+                <DataCar>{car.address}</DataCar><Delimiter>|</Delimiter>
+                <DataCar>{car.rentalCompany}</DataCar><Delimiter>|</Delimiter>
+                <DataCar>{car.type}</DataCar><Delimiter>|</Delimiter>
+                <DataCar>{car.model}</DataCar><Delimiter>|</Delimiter>
+                <DataCar>{car.id}</DataCar><Delimiter>|</Delimiter>
+                <DataCar>{car.accessories[0]}</DataCar>
+              </DataContainer>
               <BtnLodeMore onClick={() => onClick(car)}>Learn more</BtnLodeMore>
             </ContainerCar>
           ))}

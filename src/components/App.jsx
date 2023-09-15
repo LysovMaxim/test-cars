@@ -5,20 +5,21 @@ import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect, } from 'react';
-import { GlobalStyles } from "./GlobalStyles";
+import { useState, useEffect, useRef } from 'react';
+import { GlobalStyles } from './GlobalStyles';
 // import axios from 'axios';
 
 export const App = () => {
   const [cars, setCars] = useState([]);
-  const [favorite, setFavorite] = useState([]);
+  const [favorite, setFavorite] = useState(
+    JSON.parse(window.localStorage.getItem('favorite')) ?? []
+  );
   const [dataOneCar, setdataOneCar] = useState({});
   const [showeModal, setShoweModal] = useState(false);
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
-  
 
- 
+  const count = useRef(0)
 
   const onModal = data => {
     setShoweModal(!showeModal);
@@ -29,10 +30,10 @@ export const App = () => {
     setPage(() => page + 1);
   };
 
-  const addFavorit = (car) => {
+  const addFavorit = car => {
     let isInArray = false;
     const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
-    console.log(index);
+    console.log(index)
     if (index !== -1) {
       favorite.splice(index, 1);
       isInArray = true;
@@ -41,6 +42,11 @@ export const App = () => {
     }
     if (!isInArray) setFavorite(prevState => [...prevState, car]);
   };
+
+  useEffect(() => {
+    const favoriteStringify = JSON.stringify(favorite);
+    localStorage.setItem('favorite', favoriteStringify);
+  }, [favorite]);
 
   // useEffect(
   //   () => async () => {
@@ -53,24 +59,24 @@ export const App = () => {
   // );
 
   useEffect(() => {
-    
-      fetch(
-        `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
-      )
-        .then(res => res.json())
-        .then(data => {
-          setCars(prevState => [...prevState, ...data]);
-        })
-        .catch(error => {
-          setError(error);
-        });
-    
-   
+    if (count.current !== 0){
+    fetch(
+      `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
+    )
+      .then(res => res.json())
+      .then(data => {
+        setCars(prevState => [...prevState, ...data]);
+      })
+      .catch(error => {
+        setError(error);
+      });
+    }
+    count.current++
   }, [page]);
 
   return (
     <>
-      <GlobalStyles/>
+      <GlobalStyles />
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />

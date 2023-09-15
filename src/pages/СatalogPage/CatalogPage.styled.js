@@ -9,8 +9,9 @@ const Img = styled.img`
 `;
 const Container = styled.div`
   width: 1200px;
-    margin-left: auto;
+  margin-left: auto;
   margin-right: auto;
+  margin-top:50px;
 
 `;
 
@@ -18,6 +19,7 @@ const ContainerMain = styled.ul`
   display: flex;
   flex-wrap: wrap;
   gap: 29px;
+  
 `;
 
 const ContainerCar = styled.li`
@@ -48,10 +50,13 @@ const BtnIcon = styled.button`
 const ContainerInfo = styled.div`
   display: flex;
   justify-content:space-between
+  
+  
 `;
 
 const InfoCar = styled.div`
   display: flex;
+  
 `;
 
 const BtnLodeMore= styled.button`

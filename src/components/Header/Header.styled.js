@@ -5,11 +5,10 @@ const HeaderContainer = styled.nav`
   height: 50px;
   width: 100%;
   background-color: #3470FF;
-  margin-bottom:50px;
   display: flex;
   justify-content: center;
   align-items: center;
-
+  
 `;
 const HeaderList = styled.ul`
 display: flex;

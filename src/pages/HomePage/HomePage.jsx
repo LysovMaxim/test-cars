@@ -3,8 +3,7 @@ import { Container,ContentMain } from './Home.styled';
 const HomePage = () => {
   return (
     <Container>
-      <ContentMain><p>Home</p></ContentMain>
-      
+      <ContentMain><p>Home</p></ContentMain> 
     </Container>
   );
 };

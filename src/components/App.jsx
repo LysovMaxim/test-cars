@@ -34,7 +34,6 @@ export const App = () => {
     let isInArray = false;
     const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
     if (index !== -1) {
-      // favorite.splice(index, 1);
       const newArr = favorite.filter(n => n.id !== car.id);
       setFavorite(newArr);
       isInArray = true;
@@ -45,20 +44,9 @@ export const App = () => {
   };
 
   useEffect(() => {
-    console.log("test")
     const favoriteStringify = JSON.stringify(favorite);
     localStorage.setItem('favorite', favoriteStringify);
   }, [favorite]);
-
-  // useEffect(
-  //   () => async () => {
-  //     const { data } = await axios.get(
-  //       `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
-  //     );
-  //     return setCars(prevState => [...prevState, ...data]);
-  //   },
-  //   [page]
-  // );
 
   useEffect(() => {
     if (count.current !== 0){

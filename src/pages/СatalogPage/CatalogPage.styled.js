@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { AiTwotoneHeart } from 'react-icons/ai';
+import { AiOutlineHeart } from 'react-icons/ai';
 
 const Img = styled.img`
   height: 268px;
@@ -24,15 +24,10 @@ const ContainerCar = styled.li`
   margin-bottom:50px
 `;
 
-const Icon = styled(AiTwotoneHeart)`
-  // fill: #ffff;
+const Icon = styled(AiOutlineHeart)`
+  fill: #ffff;
   width: 18px;
   height: 18px;
-
-  fill: ${ props => {
-    
-  }}
-  
 `;
 
 const BtnIcon = styled.button`

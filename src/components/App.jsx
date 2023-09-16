@@ -42,7 +42,8 @@ export const App = () => {
       isInArray = false;
     }
     if (!isInArray) {
-            car.activ = true;
+      car.activ = "activ";
+      
       setFavorite(prevState => [...prevState, car]);
     }
 

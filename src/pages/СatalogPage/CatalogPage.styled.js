@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { AiOutlineHeart } from 'react-icons/ai';
+import { PiHeartDuotone } from 'react-icons/pi';
 
 const Img = styled.img`
   height: 268px;
@@ -31,10 +31,16 @@ const ContainerCar = styled.li`
   overflow-wrap: break-word
 `;
 
-const Icon = styled(AiOutlineHeart)`
-  fill: #ffff;
+const Icon = styled(PiHeartDuotone)`
   width: 18px;
   height: 18px;
+
+fill:${props => {
+  if (props.activ === undefined)
+    return "#fff";
+  if (props.activ === true)
+    return "#3470FF"; 
+}}
 `;
 
 const BtnIcon = styled.button`

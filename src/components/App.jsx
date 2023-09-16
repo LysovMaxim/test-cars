@@ -5,7 +5,7 @@ import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect} from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { GlobalStyles } from './GlobalStyles';
 // import axios from 'axios';
 
@@ -19,7 +19,7 @@ export const App = () => {
   const [page, setPage] = useState(1);
   const [error, setError] = useState(null);
 
-  
+  const count = useRef(0);
 
   const onModal = data => {
     setShoweModal(!showeModal);
@@ -34,13 +34,18 @@ export const App = () => {
     let isInArray = false;
     const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
     if (index !== -1) {
+      delete car.activ;
       const newArr = favorite.filter(n => n.id !== car.id);
       setFavorite(newArr);
       isInArray = true;
     } else if (index) {
       isInArray = false;
     }
-    if (!isInArray) setFavorite(prevState => [...prevState, car]);
+    if (!isInArray) {
+            car.activ = true;
+      setFavorite(prevState => [...prevState, car]);
+    }
+
   };
 
   useEffect(() => {
@@ -59,19 +64,19 @@ export const App = () => {
   // );
 
   useEffect(() => {
-    
-    fetch(
-      `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
-    )
-      .then(res => res.json())
-      .then(data => {
-        setCars(prevState => [...prevState, ...data]);
-      })
-      .catch(error => {
-        setError(error);
-      });
-    
-    
+    if (count.current !== 0) {
+      fetch(
+        `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
+      )
+        .then(res => res.json())
+        .then(data => {
+          setCars(prevState => [...prevState, ...data]);
+        })
+        .catch(error => {
+          setError(error);
+        });
+    }
+    count.current++;
   }, [page]);
 
   return (

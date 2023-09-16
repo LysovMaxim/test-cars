@@ -25,7 +25,7 @@ const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit }) => {
             <ContainerCar key={car.id}>
               <Img src={car.img} alt="car" />
               <BtnIcon onClick={() => addFavorit(car)}>
-                <Icon id={car.id} />
+                <Icon id={car.id} activ={car.activ}/>
               </BtnIcon>
               <ContainerInfo>
                 <InfoCar>

@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { Link } from 'react-router-dom';
 
 const Overlay = styled.div`
     position: fixed;
@@ -14,10 +15,34 @@ const Overlay = styled.div`
 `;
 
 const ModalContainer = styled.div`
-    max-width: calc(100vw - 48px);
-    max-height: calc(100vh - 24px);
+width:541px;
+height:752px;
+background-color:#fff;
+border-radius:24px
 `
+const BtnClose = styled.button`
+     margin-top: 22px;
+  margin-left: 507px;
+
+`;
+
+const Img = styled.img`
+  height: 248px;
+  width: 461px;
+  border-radius: 14px;
+  object-fit: cover;
+    margin-left: auto;
+  margin-right: auto;
+`;
+
+const BtnRental = styled(Link)`
+`;
+
 export {
     Overlay,
-    ModalContainer
+    ModalContainer,
+    Img,
+    BtnClose,
+    BtnRental
+
 };

@@ -1,5 +1,6 @@
-import { Overlay, ModalContainer } from './Modal.styled';
+import { Overlay, ModalContainer,Img,BtnClose,BtnRental } from './Modal.styled';
 import { useEffect } from 'react';
+
 
 const Modal = ({ data, onClose }) => {
   useEffect(() => {
@@ -20,12 +21,19 @@ const Modal = ({ data, onClose }) => {
     }
   };
 
+    const handleCallClick = () => {
+    window.location.href = 'tel:+380730000000';
+  };
+  
+
   return (
     <>
       <Overlay onClick={hendleBeckdropClick}>
         <ModalContainer>
-          <img src={data.img} alt="" />
+          <BtnClose onClick={onClose}>+</BtnClose>
+          <Img src={data.img} alt="" />
           <h1>{data.model}</h1>
+          <BtnRental to="#" onClick={handleCallClick}>Rental car</BtnRental>
         </ModalContainer>
       </Overlay>
     </>

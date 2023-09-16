@@ -11,7 +11,7 @@ import {
   DataCar,
   Delimiter,
   DataContainer,
-  BtnLodeMore
+  BtnLearnMore
 } from '../СatalogPage/CatalogPage.styled';
 
 const FavoritesPage = ({ favorite, onClick }) => {
@@ -40,7 +40,7 @@ const FavoritesPage = ({ favorite, onClick }) => {
                 <DataCar>{car.id}</DataCar><Delimiter>|</Delimiter>
                 <DataCar>{car.accessories[0]}</DataCar>
               </DataContainer>
-              <BtnLodeMore onClick={() => onClick(car)}>Learn more</BtnLodeMore>
+              <BtnLearnMore onClick={() => onClick(car)}>Learn more</BtnLearnMore>
             </ContainerCar>
           ))}
         </ContainerMain>

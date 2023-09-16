@@ -42,11 +42,10 @@ export const App = () => {
       isInArray = false;
     }
     if (!isInArray) {
-      car.activ = "activ";
-      
+      car.activ = 'activ';
+
       setFavorite(prevState => [...prevState, car]);
     }
-
   };
 
   useEffect(() => {
@@ -54,15 +53,6 @@ export const App = () => {
     localStorage.setItem('favorite', favoriteStringify);
   }, [favorite]);
 
-  // useEffect(
-  //   () => async () => {
-  //     const { data } = await axios.get(
-  //       `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
-  //     );
-  //     return setCars(prevState => [...prevState, ...data]);
-  //   },
-  //   [page]
-  // );
 
   useEffect(() => {
     if (count.current !== 0) {
@@ -71,7 +61,7 @@ export const App = () => {
       )
         .then(res => res.json())
         .then(data => {
-          setCars(prevState => [...prevState, ...data]);
+          update(data);
         })
         .catch(error => {
           setError(error);
@@ -79,6 +69,22 @@ export const App = () => {
     }
     count.current++;
   }, [page]);
+
+
+  const update = (data) => {
+  const dataFavorite = localStorage.getItem('favorite');
+
+  if (dataFavorite !== null) {
+    const transformationJs = JSON.parse(dataFavorite);
+    const updatedCars = data.map(item => {
+      const update = transformationJs.find(updateItem => updateItem.id === item.id);
+      return update || item;
+    });
+    setCars(prevState => [...prevState, ...updatedCars]);
+  } else {
+    setCars(prevState => [...prevState, ...data]);
+  }
+};
 
   return (
     <>

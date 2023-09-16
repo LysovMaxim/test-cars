@@ -117,7 +117,7 @@ const DataCar = styled.span`
   line-height: 18px;
 `;
 
-const BtnLodeMore = styled.button`
+const BtnLearnMore = styled.button`
   border-radius: 12px;
   background: #3470ff;
   display: flex;
@@ -135,6 +135,25 @@ const BtnLodeMore = styled.button`
   font-weight: 600;
   position: absolute;
   bottom: 0;
+  cursor: pointer;
+  
+`;
+
+const BtnLodeMore = styled.button`
+color: #3470FF;
+font-family: Manrope;
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+background: inherit;
+border:none;
+margin-bottom:150px;
+margin-top:50px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+
+
 `;
 
 export {
@@ -152,5 +171,6 @@ export {
   InfoCarPrice,
   DataCar,
   Delimiter,
-  DataContainer
+  DataContainer,
+  BtnLearnMore
 };

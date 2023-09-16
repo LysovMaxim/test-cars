@@ -13,7 +13,8 @@ import {
   InfoCarPrice,
   DataCar,
   Delimiter,
-  DataContainer
+  DataContainer,
+  BtnLearnMore
 } from './CatalogPage.styled';
 
 const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit }) => {
@@ -45,11 +46,11 @@ const CatalogPage = ({ cars, onClick, onClickLoadeMore, addFavorit }) => {
                 <DataCar>{car.id}</DataCar><Delimiter>|</Delimiter>
                 <DataCar>{car.accessories[0]}</DataCar>
               </DataContainer>
-              <BtnLodeMore onClick={() => onClick(car)}>Learn more</BtnLodeMore>
+              <BtnLearnMore onClick={() => onClick(car)}>Learn more</BtnLearnMore>
             </ContainerCar>
           ))}
-          {cars.length >= 8 && (
-            <button onClick={() => onClickLoadeMore()}>Load more</button>
+          {cars.length >= 8 && cars.length < 25 && (
+            <BtnLodeMore onClick={() => onClickLoadeMore()}>Load more</BtnLodeMore>
           )}
         </ContainerMain>
       </Container>

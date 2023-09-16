@@ -14,7 +14,11 @@ import {
   BtnLearnMore
 } from '../СatalogPage/CatalogPage.styled';
 
-const FavoritesPage = ({ favorite, onClick }) => {
+const FavoritesPage = ({ onClick }) => {
+        
+        const favoriteLocalStorage = localStorage.getItem("favorite");
+        const favorite = JSON.parse(favoriteLocalStorage);
+
   return (
     <>
       <Container>

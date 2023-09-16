@@ -5,86 +5,18 @@ import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react';
+import { useState } from 'react';
 import { GlobalStyles } from './GlobalStyles';
 // import axios from 'axios';
 
 export const App = () => {
-  const [cars, setCars] = useState([]);
-  const [favorite, setFavorite] = useState(
-    JSON.parse(window.localStorage.getItem('favorite')) ?? []
-  );
   const [dataOneCar, setdataOneCar] = useState({});
   const [showeModal, setShoweModal] = useState(false);
-  const [page, setPage] = useState(1);
-  const [error, setError] = useState(null);
-
-  const count = useRef(0);
 
   const onModal = data => {
     setShoweModal(!showeModal);
     setdataOneCar(data);
   };
-
-  const onLoadeMore = () => {
-    setPage(() => page + 1);
-  };
-
-  const addFavorit = car => {
-    let isInArray = false;
-    const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
-    if (index !== -1) {
-      delete car.activ;
-      const newArr = favorite.filter(n => n.id !== car.id);
-      setFavorite(newArr);
-      isInArray = true;
-    } else if (index) {
-      isInArray = false;
-    }
-    if (!isInArray) {
-      car.activ = 'activ';
-
-      setFavorite(prevState => [...prevState, car]);
-    }
-  };
-
-  useEffect(() => {
-    const favoriteStringify = JSON.stringify(favorite);
-    localStorage.setItem('favorite', favoriteStringify);
-  }, [favorite]);
-
-
-  useEffect(() => {
-    if (count.current !== 0) {
-      fetch(
-        `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
-      )
-        .then(res => res.json())
-        .then(data => {
-          update(data);
-        })
-        .catch(error => {
-          setError(error);
-        });
-    }
-    count.current++;
-  }, [page]);
-
-
-  const update = (data) => {
-  const dataFavorite = localStorage.getItem('favorite');
-
-  if (dataFavorite !== null) {
-    const transformationJs = JSON.parse(dataFavorite);
-    const updatedCars = data.map(item => {
-      const update = transformationJs.find(updateItem => updateItem.id === item.id);
-      return update || item;
-    });
-    setCars(prevState => [...prevState, ...updatedCars]);
-  } else {
-    setCars(prevState => [...prevState, ...data]);
-  }
-};
 
   return (
     <>
@@ -92,26 +24,15 @@ export const App = () => {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
-          <Route
-            path="/catalog"
-            element={
-              <CatalogPage
-                cars={cars}
-                onClick={onModal}
-                onClickLoadeMore={onLoadeMore}
-                addFavorit={addFavorit}
-              />
-            }
-          />
+          <Route path="/catalog" element={<CatalogPage onClick={onModal} />} />
           <Route
             path="/favorites"
-            element={<FavoritesPage onClick={onModal} favorite={favorite} />}
+            element={<FavoritesPage onClick={onModal} />}
           />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>
       </Routes>
       {showeModal && <Modal onClose={onModal} data={dataOneCar} />}
-      {error && <h1>{error.message}</h1>}
     </>
   );
 };

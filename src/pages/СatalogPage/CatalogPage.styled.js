@@ -1,6 +1,55 @@
 import styled from '@emotion/styled';
 import { PiHeartDuotone } from 'react-icons/pi';
 
+// -----------------Form---------------------------
+
+const Form = styled.form`
+display:flex;
+margin-top:50px;
+display: flex;
+justify-content: center;
+align-items: center;
+
+`;
+
+const InputFrom = styled.input`
+  height: 48px;
+  width: 160px;
+  border-radius: 14px 0px 0px 14px;
+  background: #F7F7FB;
+  border:none;
+
+`;
+
+const InputPrice = styled.input`
+  height: 48px;
+  width: 160px;
+  background: #F7F7FB;
+  border:none;
+  border-radius: 0px 14px 14px 0px;
+
+`;
+
+const BtnFind = styled.button`
+width: 136px;
+height: 48px;
+padding: 14px 44px;
+border-radius: 12px;
+background: #3470FF;
+font-family: Manrope;
+font-size: 14px;
+font-style: normal;
+font-weight: 600;
+line-height: 20px; 
+color:#fff;
+border:none;
+cursor: pointer;
+
+`;
+
+
+// ---------------Сars-----------------------------
+
 const Img = styled.img`
   height: 268px;
   width: 274px;
@@ -172,5 +221,9 @@ export {
   DataCar,
   Delimiter,
   DataContainer,
-  BtnLearnMore
+  BtnLearnMore,
+  InputFrom,
+  InputPrice,
+  Form,
+  BtnFind
 };

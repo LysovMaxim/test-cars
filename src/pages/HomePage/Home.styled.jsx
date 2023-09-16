@@ -1,4 +1,3 @@
-
 import styled from '@emotion/styled';
 
 const Container = styled.div`
@@ -8,8 +7,11 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
-  
+  background: radial-gradient(
+    circle,
+    rgba(238, 174, 202, 1) 0%,
+    rgba(148, 187, 233, 1) 100%
+  );
 `;
 
 const ContentMain = styled.div`
@@ -17,8 +19,13 @@ const ContentMain = styled.div`
   flex-direction: column;
 `;
 
+const Info = styled.p`
+  color: #121417;
+  font-family: Manrope;
+  font-size: 50px;
+  font-style: normal;
+  font-weight: 400;
+  max-width: 600px;
+`;
 
-export {
-    Container,
-    ContentMain
-};
+export { Container, ContentMain, Info };

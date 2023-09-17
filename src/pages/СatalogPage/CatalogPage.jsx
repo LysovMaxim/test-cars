@@ -23,7 +23,8 @@ import {
   InputLabelFrom,
   InputLabelTo,
   ContainerInput,
-  InputMileage
+  InputMileage,
+  ContainerBrandAndPrice
 } from './CatalogPage.styled';
 import Select from 'react-select';
 import { mark, price } from '../../selectData';
@@ -192,20 +193,26 @@ const CatalogPage = ({ onClick }) => {
   return (
     <>
       <Form onSubmit={onSubmit}>
-        <Select
-          styles={customStylesMark}
-          placeholder="Enter the text"
-          options={mark}
-          value={dataMark}
-          onChange={onMark}
-        />
-        <Select
-          styles={customStylesPrice}
-          placeholder="To $"
-          options={price}
-          value={dataPrice}
-          onChange={onPrice}
-        />
+        <ContainerInput>
+          <ContainerBrandAndPrice>Car brand</ContainerBrandAndPrice>
+          <Select
+            styles={customStylesMark}
+            placeholder="Enter the text"
+            options={mark}
+            value={dataMark}
+            onChange={onMark}
+          />
+        </ContainerInput>
+        <ContainerInput>
+          <ContainerBrandAndPrice>Price/ 1 hour</ContainerBrandAndPrice>
+          <Select
+            styles={customStylesPrice}
+            placeholder="To $"
+            options={price}
+            value={dataPrice}
+            onChange={onPrice}
+          />
+        </ContainerInput>
         <ContainerInput>
           <InputMileage>Сar mileage / km</InputMileage>
           <InputLabelFrom>From</InputLabelFrom>

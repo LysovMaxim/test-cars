@@ -12,6 +12,18 @@ align-items: center;
 
 `;
 
+const ContainerBrandAndPrice = styled.span`
+position:absolute;
+top:-25px;
+color: #8A8A89;
+font-family: Manrope;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+
+`;
+
 const ContainerInput = styled.div`
 position:relative
 
@@ -286,5 +298,6 @@ export {
   InputLabelFrom,
   InputLabelTo,
   ContainerInput,
-  InputMileage
+  InputMileage,
+  ContainerBrandAndPrice
 };

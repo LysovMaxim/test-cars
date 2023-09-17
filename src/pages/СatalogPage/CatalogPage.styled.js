@@ -12,6 +12,11 @@ align-items: center;
 
 `;
 
+const ContainerInput = styled.div`
+position:relative
+
+`;
+
 const InputFrom = styled.input`
   height: 48px;
   width: 160px;
@@ -47,23 +52,21 @@ line-height: 20px;
 
 const InputLabelFrom = styled.label`
 position:absolute ;
-right:10px
-top: 25%;
-left: 48%;
 color: #121417;
 font-family: Manrope;
 font-size: 18px;
 font-style: normal;
 font-weight: 500;
 line-height: 20px;
+top:14px;
+left:15px
 `;
 
 const InputLabelTo = styled.label`
 position:absolute;
-left:40px;
-top: 25,5%;
-    left: 59%;
-    color: #121417;
+top:14px;
+left:15px;
+color: #121417;
 font-family: Manrope;
 font-size: 18px;
 font-style: normal;
@@ -269,5 +272,6 @@ export {
   Form,
   BtnFind,
   InputLabelFrom,
-  InputLabelTo
+  InputLabelTo,
+  ContainerInput
 };

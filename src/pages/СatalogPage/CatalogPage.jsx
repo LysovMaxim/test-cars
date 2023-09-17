@@ -21,7 +21,8 @@ import {
   Form,
   BtnFind,
   InputLabelFrom,
-  InputLabelTo
+  InputLabelTo,
+  ContainerInput
 } from './CatalogPage.styled';
 import Select from 'react-select';
 import { mark, price } from '../../selectData';
@@ -164,7 +165,7 @@ const CatalogPage = ({ onClick }) => {
       width: '224px',
       height: '48px',
       border: 'none',
-      marginRight:"18px"
+      marginRight: '18px',
     }),
     option: provided => ({
       ...provided,
@@ -180,7 +181,7 @@ const CatalogPage = ({ onClick }) => {
       width: '125px',
       height: '48px',
       border: 'none',
-      marginRight:"18px"
+      marginRight: '18px',
     }),
     option: provided => ({
       ...provided,
@@ -204,10 +205,16 @@ const CatalogPage = ({ onClick }) => {
           value={dataPrice}
           onChange={onPrice}
         />
-        <InputLabelFrom>From</InputLabelFrom>
-        <InputFrom type="text" name="from" value={from} onChange={onFrom} />
-        <InputLabelTo>To</InputLabelTo>
-        <InputPrice type="text" name="to" value={to} onChange={onTo} />
+        <ContainerInput>
+          <InputLabelFrom>From</InputLabelFrom>
+          <InputFrom type="text" name="from" value={from} onChange={onFrom} />
+        </ContainerInput>
+        <ContainerInput>
+          {' '}
+          <InputLabelTo>To</InputLabelTo>
+          <InputPrice type="text" name="to" value={to} onChange={onTo} />
+        </ContainerInput>
+
         <BtnFind>Search</BtnFind>
       </Form>
       <Container>

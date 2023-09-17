@@ -17,6 +17,18 @@ position:relative
 
 `;
 
+const InputMileage = styled.span`
+position:absolute ;
+top:-25px;
+color: #8A8A89;
+font-family: Manrope;
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px;
+
+`;
+
 const InputFrom = styled.input`
   height: 48px;
   width: 160px;
@@ -273,5 +285,6 @@ export {
   BtnFind,
   InputLabelFrom,
   InputLabelTo,
-  ContainerInput
+  ContainerInput,
+  InputMileage
 };

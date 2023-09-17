@@ -22,7 +22,8 @@ import {
   BtnFind,
   InputLabelFrom,
   InputLabelTo,
-  ContainerInput
+  ContainerInput,
+  InputMileage
 } from './CatalogPage.styled';
 import Select from 'react-select';
 import { mark, price } from '../../selectData';
@@ -206,11 +207,11 @@ const CatalogPage = ({ onClick }) => {
           onChange={onPrice}
         />
         <ContainerInput>
+          <InputMileage>Сar mileage / km</InputMileage>
           <InputLabelFrom>From</InputLabelFrom>
           <InputFrom type="text" name="from" value={from} onChange={onFrom} />
         </ContainerInput>
         <ContainerInput>
-          {' '}
           <InputLabelTo>To</InputLabelTo>
           <InputPrice type="text" name="to" value={to} onChange={onTo} />
         </ContainerInput>

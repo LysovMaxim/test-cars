@@ -18,7 +18,15 @@ const InputFrom = styled.input`
   border-radius: 14px 0px 0px 14px;
   background: #F7F7FB;
   border:none;
-
+   outline: none; 
+   border-right: 1px solid rgba(138, 138, 137, 0.20);
+  padding-left:62px;
+  color: #121417;
+font-family: Manrope;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
 `;
 
 const InputPrice = styled.input`
@@ -27,7 +35,40 @@ const InputPrice = styled.input`
   background: #F7F7FB;
   border:none;
   border-radius: 0px 14px 14px 0px;
+  outline: none; 
+  padding-left:42px;
+  color: #121417;
+font-family: Manrope;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+`;
 
+const InputLabelFrom = styled.label`
+position:absolute ;
+right:10px
+top: 25%;
+left: 48%;
+color: #121417;
+font-family: Manrope;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
+`;
+
+const InputLabelTo = styled.label`
+position:absolute;
+left:40px;
+top: 25,5%;
+    left: 59%;
+    color: #121417;
+font-family: Manrope;
+font-size: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: 20px;
 `;
 
 const BtnFind = styled.button`
@@ -44,6 +85,7 @@ line-height: 20px;
 color:#fff;
 border:none;
 cursor: pointer;
+margin-left: 18px
 
 `;
 
@@ -225,5 +267,7 @@ export {
   InputFrom,
   InputPrice,
   Form,
-  BtnFind
+  BtnFind,
+  InputLabelFrom,
+  InputLabelTo
 };

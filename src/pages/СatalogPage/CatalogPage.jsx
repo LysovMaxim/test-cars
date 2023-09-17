@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import {
   Img,
   Container,
@@ -20,6 +20,8 @@ import {
   InputPrice,
   Form,
   BtnFind,
+  InputLabelFrom,
+  InputLabelTo
 } from './CatalogPage.styled';
 import Select from 'react-select';
 import { mark, price } from '../../selectData';
@@ -31,7 +33,6 @@ const CatalogPage = ({ onClick }) => {
   );
   const [error, setError] = useState(null);
   const [page, setPage] = useState(1);
-
   const [dataMark, setMark] = useState('');
   const [dataPrice, setPrice] = useState('');
   const [from, setFrom] = useState('');
@@ -39,7 +40,7 @@ const CatalogPage = ({ onClick }) => {
   const [allCars, setAllCars] = useState([]);
   const [render, setRender] = useState(false);
 
-  
+  const count = useRef(0);
 
   const addFavorit = car => {
     let isInArray = false;
@@ -60,7 +61,7 @@ const CatalogPage = ({ onClick }) => {
   };
 
   useEffect(() => {
-    
+    if (count.current !== 0) {
       fetch(
         `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
       )
@@ -71,9 +72,9 @@ const CatalogPage = ({ onClick }) => {
         .catch(error => {
           setError(error);
         });
-    
+    }
 
-   
+    count.current++;
   }, [page]);
 
   useEffect(() => {
@@ -131,17 +132,18 @@ const CatalogPage = ({ onClick }) => {
   useEffect(() => {
     if (render) {
       const arrayCars = [...allCars];
-      if (dataMark || price || (from && to)) {
+      if (dataMark || dataPrice || (from && to)) {
         const filter = arrayCars.filter(car => {
-          const markCondition = !dataMark || car.make === dataMark.value;
-          const priceCondition =
+          const mark = !dataMark || car.make === dataMark.value;
+          const price =
             !dataPrice ||
             Number(car.rentalPrice.replace(/[^0-9.-]+/g, '')) <=
               Number(dataPrice.value);
-          const mileageCondition =
+          const mileage =
             (!from && !to) || (car.mileage >= from && car.mileage <= to);
-          return markCondition && priceCondition && mileageCondition;
+          return mark && price && mileage;
         });
+
         setCars(filter);
         setMark('');
         setPrice('');
@@ -162,6 +164,7 @@ const CatalogPage = ({ onClick }) => {
       width: '224px',
       height: '48px',
       border: 'none',
+      marginRight:"18px"
     }),
     option: provided => ({
       ...provided,
@@ -174,9 +177,10 @@ const CatalogPage = ({ onClick }) => {
       borderRadius: '14px',
       background: '#F7F7FB',
       color: '#121417',
-      width: '224px',
+      width: '125px',
       height: '48px',
       border: 'none',
+      marginRight:"18px"
     }),
     option: provided => ({
       ...provided,
@@ -200,9 +204,9 @@ const CatalogPage = ({ onClick }) => {
           value={dataPrice}
           onChange={onPrice}
         />
-        <label>From</label>
+        <InputLabelFrom>From</InputLabelFrom>
         <InputFrom type="text" name="from" value={from} onChange={onFrom} />
-        <label>To</label>
+        <InputLabelTo>To</InputLabelTo>
         <InputPrice type="text" name="to" value={to} onChange={onTo} />
         <BtnFind>Search</BtnFind>
       </Form>

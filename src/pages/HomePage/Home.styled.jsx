@@ -25,7 +25,7 @@ const Info = styled.p`
   font-size: 50px;
   font-style: normal;
   font-weight: 400;
-  max-width: 800px;
+  max-width: 850px;
 `;
 
 export { Container, ContentMain, Info };

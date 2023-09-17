@@ -163,14 +163,15 @@ const CatalogPage = ({ onClick }) => {
       ...provided,
       borderRadius: '14px',
       background: '#F7F7FB',
-      color: '#121417',
+      color: 'red',
       width: '224px',
       height: '48px',
       border: 'none',
       marginRight: '18px',
     }),
-    option: provided => ({
+    singleValue: provided => ({
       ...provided,
+      
     }),
   };
 

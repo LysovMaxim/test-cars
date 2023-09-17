@@ -11,13 +11,13 @@ import {
   DataCar,
   Delimiter,
   DataContainer,
-  BtnLearnMore
+  BtnLearnMore,
+  BtnIcon,
+  Icon
 } from '../СatalogPage/CatalogPage.styled';
 
-const FavoritesPage = ({ onClick }) => {
-        
-        const favoriteLocalStorage = localStorage.getItem("favorite");
-        const favorite = JSON.parse(favoriteLocalStorage);
+
+const FavoritesPage = ({ onClick, addFavorit, favorite }) => {
 
   return (
     <>
@@ -26,6 +26,9 @@ const FavoritesPage = ({ onClick }) => {
           {favorite.map(car => (
             <ContainerCar key={car.id}>
               <Img src={car.img} alt="car" />
+              <BtnIcon onClick={() => addFavorit(car)}>
+                <Icon id={car.id} activ={car.activ} />
+              </BtnIcon>
               <ContainerInfo>
                 <InfoCar>
                   <InfoCarlist>{car.make}</InfoCarlist>

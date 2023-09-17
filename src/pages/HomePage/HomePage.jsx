@@ -1,4 +1,4 @@
-import { Container, ContentMain,Info } from './Home.styled';
+import { Container, ContentMain, Info } from './Home.styled';
 
 const HomePage = () => {
   return (

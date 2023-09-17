@@ -13,12 +13,10 @@ import {
   DataContainer,
   BtnLearnMore,
   BtnIcon,
-  Icon
-} from '../СatalogPage/CatalogPage.styled';
-
+  Icon,
+} from '../CatalogPage/CatalogPage.styled';
 
 const FavoritesPage = ({ onClick, addFavorit, favorite }) => {
-
   return (
     <>
       <Container>
@@ -40,14 +38,21 @@ const FavoritesPage = ({ onClick, addFavorit, favorite }) => {
                 </div>
               </ContainerInfo>
               <DataContainer>
-                <DataCar>{car.address}</DataCar><Delimiter>|</Delimiter>
-                <DataCar>{car.rentalCompany}</DataCar><Delimiter>|</Delimiter>
-                <DataCar>{car.type}</DataCar><Delimiter>|</Delimiter>
-                <DataCar>{car.model}</DataCar><Delimiter>|</Delimiter>
-                <DataCar>{car.id}</DataCar><Delimiter>|</Delimiter>
+                <DataCar>{car.address}</DataCar>
+                <Delimiter>|</Delimiter>
+                <DataCar>{car.rentalCompany}</DataCar>
+                <Delimiter>|</Delimiter>
+                <DataCar>{car.type}</DataCar>
+                <Delimiter>|</Delimiter>
+                <DataCar>{car.model}</DataCar>
+                <Delimiter>|</Delimiter>
+                <DataCar>{car.id}</DataCar>
+                <Delimiter>|</Delimiter>
                 <DataCar>{car.accessories[0]}</DataCar>
               </DataContainer>
-              <BtnLearnMore onClick={() => onClick(car)}>Learn more</BtnLearnMore>
+              <BtnLearnMore onClick={() => onClick(car)}>
+                Learn more
+              </BtnLearnMore>
             </ContainerCar>
           ))}
         </ContainerMain>

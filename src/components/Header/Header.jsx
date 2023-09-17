@@ -1,8 +1,4 @@
-import {
-  HeaderContainer,
-  HeaderList,
-  HeaderEl
-} from './Header.styled';
+import { HeaderContainer, HeaderList, HeaderEl } from './Header.styled';
 
 const Header = () => {
   return (

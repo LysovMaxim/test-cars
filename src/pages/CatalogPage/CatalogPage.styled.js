@@ -4,118 +4,112 @@ import { PiHeartDuotone } from 'react-icons/pi';
 // -----------------Form---------------------------
 
 const Form = styled.form`
-display:flex;
-margin-top:50px;
-display: flex;
-justify-content: center;
-align-items: center;
-
+  display: flex;
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const ContainerBrandAndPrice = styled.span`
-position:absolute;
-top:-25px;
-color: #8A8A89;
-font-family: Manrope;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 18px;
-
+  position: absolute;
+  top: -25px;
+  color: #8a8a89;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 `;
 
 const ContainerInput = styled.div`
-position:relative
-
+  position: relative;
 `;
 
 const InputMileage = styled.span`
-position:absolute ;
-top:-25px;
-color: #8A8A89;
-font-family: Manrope;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 18px;
-
+  position: absolute;
+  top: -25px;
+  color: #8a8a89;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 18px;
 `;
 
 const InputFrom = styled.input`
   height: 48px;
   width: 160px;
   border-radius: 14px 0px 0px 14px;
-  background: #F7F7FB;
-  border:none;
-   outline: none; 
-   border-right: 1px solid rgba(138, 138, 137, 0.20);
-  padding-left:62px;
+  background: #f7f7fb;
+  border: none;
+  outline: none;
+  border-right: 1px solid rgba(138, 138, 137, 0.2);
+  padding-left: 62px;
   color: #121417;
-font-family: Manrope;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
 `;
 
 const InputPrice = styled.input`
   height: 48px;
   width: 160px;
-  background: #F7F7FB;
-  border:none;
+  background: #f7f7fb;
+  border: none;
   border-radius: 0px 14px 14px 0px;
-  outline: none; 
-  padding-left:42px;
+  outline: none;
+  padding-left: 42px;
   color: #121417;
-font-family: Manrope;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
 `;
 
 const InputLabelFrom = styled.label`
-position:absolute ;
-color: #121417;
-font-family: Manrope;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px;
-top:14px;
-left:15px
+  position: absolute;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  top: 14px;
+  left: 15px;
 `;
 
 const InputLabelTo = styled.label`
-position:absolute;
-top:14px;
-left:15px;
-color: #121417;
-font-family: Manrope;
-font-size: 18px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px;
+  position: absolute;
+  top: 14px;
+  left: 15px;
+  color: #121417;
+  font-family: Manrope;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
 `;
 
 const BtnFind = styled.button`
-width: 136px;
-height: 48px;
-padding: 14px 44px;
-border-radius: 12px;
-background: #3470FF;
-font-family: Manrope;
-font-size: 14px;
-font-style: normal;
-font-weight: 600;
-line-height: 20px; 
-color:#fff;
-border:none;
-cursor: pointer;
-margin-left: 18px
-
+  width: 136px;
+  height: 48px;
+  padding: 14px 44px;
+  border-radius: 12px;
+  background: #3470ff;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 20px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-left: 18px;
 `;
-
 
 // ---------------Сars-----------------------------
 
@@ -146,19 +140,17 @@ const ContainerCar = styled.li`
   height: 450px;
   width: 274px;
   position: relative;
-  overflow-wrap: break-word
+  overflow-wrap: break-word;
 `;
 
 const Icon = styled(PiHeartDuotone)`
   width: 18px;
   height: 18px;
 
-fill:${props => {
-  if (props.activ === undefined)
-    return "#fff";
-  if (props.activ === "activ")
-    return "#3470FF"; 
-}}
+  fill: ${props => {
+    if (props.activ === undefined) return '#fff';
+    if (props.activ === 'activ') return '#3470FF';
+  }};
 `;
 
 const BtnIcon = styled.button`
@@ -254,24 +246,21 @@ const BtnLearnMore = styled.button`
   position: absolute;
   bottom: 0;
   cursor: pointer;
-  
 `;
 
 const BtnLodeMore = styled.button`
-color: #3470FF;
-font-family: Manrope;
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-background: inherit;
-border:none;
-margin-bottom:150px;
-margin-top:50px;
+  color: #3470ff;
+  font-family: Manrope;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  background: inherit;
+  border: none;
+  margin-bottom: 150px;
+  margin-top: 50px;
   margin-left: auto;
   margin-right: auto;
   cursor: pointer;
-
-
 `;
 
 export {
@@ -299,5 +288,5 @@ export {
   InputLabelTo,
   ContainerInput,
   InputMileage,
-  ContainerBrandAndPrice
+  ContainerBrandAndPrice,
 };

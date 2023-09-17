@@ -1,13 +1,12 @@
 import HomePage from '../pages/HomePage/HomePage';
-import CatalogPage from '../pages/СatalogPage/CatalogPage';
+import CatalogPage from '../pages/CatalogPage/CatalogPage';
 import FavoritesPage from '../pages/FavoritesPage/FavoritesPage';
 import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { GlobalStyles } from './GlobalStyles';
-// import axios from 'axios';
 
 export const App = () => {
   const [dataOneCar, setdataOneCar] = useState({});
@@ -24,8 +23,6 @@ export const App = () => {
   const [to, setTo] = useState('');
   const [allCars, setAllCars] = useState([]);
   const [render, setRender] = useState(false);
-
-  const count = useRef(0);
 
   const addFavorit = car => {
     let isInArray = false;
@@ -45,7 +42,6 @@ export const App = () => {
   };
 
   useEffect(() => {
-    if (count.current !== 0) {
       fetch(
         `https://648d7fab2de8d0ea11e7e842.mockapi.io/adverts?page=${page}&limit=8`
       )
@@ -56,8 +52,6 @@ export const App = () => {
         .catch(error => {
           setError(error);
         });
-    }
-    count.current++;
   }, [page]);
 
   useEffect(() => {
@@ -170,7 +164,13 @@ export const App = () => {
           />
           <Route
             path="/favorites"
-            element={<FavoritesPage onClick={onModal} addFavorit={addFavorit} favorite={favorite} />}
+            element={
+              <FavoritesPage
+                onClick={onModal}
+                addFavorit={addFavorit}
+                favorite={favorite}
+              />
+            }
           />
           <Route path="*" element={<Navigate to="/" />} />
         </Route>

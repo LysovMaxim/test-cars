@@ -13,7 +13,7 @@ import {
   InfoDescription,
   Accessories,
   AccessoriesItem,
- Rental
+  Rental,
 } from './Modal.styled';
 import { useEffect } from 'react';
 
@@ -65,8 +65,11 @@ const Modal = ({ data, onClose }) => {
           <InfoDescription>{data.description}</InfoDescription>
           <Accessories>Accessories and functionalities:</Accessories>
           <div>
-            {data.accessories.map((info, index) => (<><AccessoriesItem key={index}>{info}</AccessoriesItem><Delimiter>|</Delimiter></>
-              
+            {data.accessories.map((info, index) => (
+              <>
+                <AccessoriesItem key={index}>{info}</AccessoriesItem>
+                <Delimiter>|</Delimiter>
+              </>
             ))}
           </div>
           <Rental>Rental Conditions:</Rental>

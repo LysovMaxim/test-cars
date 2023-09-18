@@ -40,8 +40,8 @@ const BtnRental = styled.a``;
 const InfoCar = styled.div`
   display: flex;
   gap: 2px;
-  margin-top:15px;
-  margin-bottom:15px
+  margin-top: 15px;
+  margin-bottom: 15px;
 `;
 
 const InfoCarlist = styled.div`
@@ -79,47 +79,61 @@ const DataCar = styled.span`
 `;
 
 const ContainerDataCar = styled.div`
-width:277px
-`
-
+  width: 277px;
+`;
 
 const InfoDescription = styled.p`
-color: #121417;
-font-family: Manrope;
-font-size: 14px;
-font-style: normal;
-font-weight: 400;
-line-height: 20px;
-margin-top:14px;
-margin-bottom:24px
-
-`
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  margin-top: 14px;
+  margin-bottom: 24px;
+`;
 const Accessories = styled.div`
-color: #121417;
-font-family: Manrope;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px;
-margin-bottom:8px
-`
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-bottom: 8px;
+`;
 const AccessoriesItem = styled.span`
-color: rgba(18, 20, 23, 0.50);
-font-family: Manrope;
-font-size: 12px;
-font-style: normal;
-font-weight: 400;
-line-height: 18px; 
-`
+  color: rgba(18, 20, 23, 0.5);
+  font-family: Manrope;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 18px;
+`;
 const Rental = styled.div`
-color: #121417;
-font-family: Manrope;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: 20px; 
-margin-top:24px;
-margin-bottom:15px
-`
+  color: #121417;
+  font-family: Manrope;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: 24px;
+  margin-bottom: 15px;
+`;
 
-export { Overlay, ModalContainer, Img, BtnClose, BtnRental,InfoCar,InfoCarlist,InfoCarModel,Delimiter,DataCar,ContainerDataCar,InfoDescription,Accessories,AccessoriesItem,Rental};
+export {
+  Overlay,
+  ModalContainer,
+  Img,
+  BtnClose,
+  BtnRental,
+  InfoCar,
+  InfoCarlist,
+  InfoCarModel,
+  Delimiter,
+  DataCar,
+  ContainerDataCar,
+  InfoDescription,
+  Accessories,
+  AccessoriesItem,
+  Rental,
+};

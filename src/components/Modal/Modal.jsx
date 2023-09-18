@@ -4,6 +4,16 @@ import {
   Img,
   BtnClose,
   BtnRental,
+  InfoCar,
+  InfoCarlist,
+  InfoCarModel,
+  Delimiter,
+  DataCar,
+  ContainerDataCar,
+  InfoDescription,
+  Accessories,
+  AccessoriesItem,
+ Rental
 } from './Modal.styled';
 import { useEffect } from 'react';
 
@@ -34,26 +44,32 @@ const Modal = ({ data, onClose }) => {
         <ModalContainer>
           <BtnClose onClick={onClose}>+</BtnClose>
           <Img src={data.img} alt="" />
-          <ul>
-            <li>{data.make}</li>
-            <li>{data.model}</li>
-            <li>{data.year}</li>
-          </ul>
+          <InfoCar>
+            <InfoCarlist>{data.make}</InfoCarlist>
+            <InfoCarModel>{data.model},</InfoCarModel>
+            <InfoCarlist>{data.year}</InfoCarlist>
+          </InfoCar>
+          <ContainerDataCar>
+            <DataCar>{data.address}</DataCar>
+            <Delimiter>|</Delimiter>
+            <DataCar>id: {data.id}</DataCar>
+            <Delimiter>|</Delimiter>
+            <DataCar>Year: {data.year}</DataCar>
+            <Delimiter>|</Delimiter>
+            <DataCar>Type: {data.type}</DataCar>
+            <Delimiter>|</Delimiter>
+            <DataCar>Fuel Consumption{data.fuelConsumption}</DataCar>
+            <Delimiter>|</Delimiter>
+            <DataCar>Engine Size:{data.engineSize}</DataCar>
+          </ContainerDataCar>
+          <InfoDescription>{data.description}</InfoDescription>
+          <Accessories>Accessories and functionalities:</Accessories>
           <div>
-            <span>{data.address}</span>
-            <span>id: {data.id}</span>
-            <span>Year: {data.year}</span>
-            <span>Type: {data.type}</span>
-            <span>Fuel Consumption{data.fuelConsumption}</span>
-            <span>Engine Size:{data.engineSize}</span>
-          </div>
-          <p>{data.description}</p>
-          <div>Accessories and functionalities:</div>
-          <div>
-            {data.accessories.map((info, index) => (
-              <span key={index}>{info}</span>
+            {data.accessories.map((info, index) => (<><AccessoriesItem key={index}>{info}</AccessoriesItem><Delimiter>|</Delimiter></>
+              
             ))}
           </div>
+          <Rental>Rental Conditions:</Rental>
           <div>
             {data.functionalities.map((info, index) => (
               <span key={index}>{info}</span>

@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/test-cars/static/css/main.cd2e038f.css",
-    "main.js": "/test-cars/static/js/main.aba03e6a.js",
+    "main.js": "/test-cars/static/js/main.385ac7e9.js",
     "index.html": "/test-cars/index.html",
     "main.cd2e038f.css.map": "/test-cars/static/css/main.cd2e038f.css.map",
-    "main.aba03e6a.js.map": "/test-cars/static/js/main.aba03e6a.js.map"
+    "main.385ac7e9.js.map": "/test-cars/static/js/main.385ac7e9.js.map"
   },
   "entrypoints": [
     "static/css/main.cd2e038f.css",
-    "static/js/main.aba03e6a.js"
+    "static/js/main.385ac7e9.js"
   ]
 }

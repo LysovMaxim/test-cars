@@ -150,6 +150,7 @@ const Icon = styled(PiHeartDuotone)`
   fill: ${props => {
     if (props.activ === undefined) return '#fff';
     if (props.activ === 'activ') return '#3470FF';
+    if (props.activ === 'noActiv') return '#fff';
   }};
 `;
 

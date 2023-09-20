@@ -5,7 +5,7 @@ import Layout from './Layout/Layout';
 import Modal from './Modal/Modal';
 
 import { Routes, Route, Navigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect,useState } from 'react';
 import { GlobalStyles } from './GlobalStyles';
 
 export const App = () => {
@@ -28,9 +28,11 @@ export const App = () => {
     let isInArray = false;
     const index = favorite.findIndex(el => Number(el.id) === Number(car.id));
     if (index !== -1) {
-      delete car.activ;
+      const findOun = cars.find(n => n.id === car.id);
+      findOun.activ = "noActiv";
       const newArr = favorite.filter(n => n.id !== car.id);
       setFavorite(newArr);
+  
       isInArray = true;
     } else if (index) {
       isInArray = false;
